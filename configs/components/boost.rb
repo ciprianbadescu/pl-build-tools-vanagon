@@ -1,12 +1,7 @@
 component "boost" do |pkg, settings, platform|
   # Source-Related Metadata
-  pkg.version "1.58.0"
-  pkg.md5sum "5a5d5614d9a07672e1ab2a250b5defc5"
-
-  if platform.architecture =~ /arm/
-    pkg.version "1.61.0"
-    pkg.md5sum "874805ba2e2ee415b1877ef3297bf8ad"
-  end
+  pkg.version "1.61.0"
+  pkg.md5sum "874805ba2e2ee415b1877ef3297bf8ad"
 
   # Apparently boost doesn't use dots to version they use underscores....arg
   pkg.url "http://downloads.sourceforge.net/project/boost/boost/#{pkg.get_version}/boost_#{pkg.get_version.gsub('.','_')}.tar.gz"
@@ -99,7 +94,7 @@ component "boost" do |pkg, settings, platform|
     # bootstrap.bat does not take the `--with-toolset` flag
     toolset = "mingw"
     # boost is installed with this extra subdirectory on windows
-    boost_dir = "boost-1_58"
+    boost_dir = "boost-1_61"
     # we do not need to reference the .bat suffix when calling the bootstrap script
     bootstrap_suffix = ""
     # we need to make sure we link against non-cygwin libraries
