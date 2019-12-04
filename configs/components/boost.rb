@@ -101,9 +101,9 @@ component "boost" do |pkg, settings, platform|
     execute = "cmd.exe /c "
 
     # Sometimes we need to pass in the windows-specific path
-    special_prefix = platform.convert_to_windows_path(settings[:prefix])
+    special_prefix = settings[:prefix].sub("/cygdrive/c", "C:")
 
-    gpp = platform.convert_to_windows_path("C:/tools/mingw#{arch}/bin/g++")
+    gpp = "C:/tools/mingw#{arch}/bin/g++"
 
     # We don't have iconv available on windows yet
     addtl_flags = "boost.locale.iconv=off"
